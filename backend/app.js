@@ -2,11 +2,12 @@ const express = require('express');
 const userRoutes = require('./routes/user');
 const bookRoutes = require('./routes/book');
 const path = require('path');
+require('dotenv').config();
 
 const app = express();
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://momo:momo123452@cluster0.m4j0gbp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+mongoose.connect(`mongodb+srv://momo:${process.env.MDP}@cluster0.m4j0gbp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true

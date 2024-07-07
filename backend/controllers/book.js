@@ -53,7 +53,6 @@ exports.modifyBook = async (req, res, next) => {
         await Book.updateOne({ _id: req.params.id }, book)
 
         if (req.file) {
-            console.log(oldBook);
             const filename = oldBook.imageUrl.split('/images/')[1];
             fs.unlink(`images/${filename}`, () => {
             console.log("fichier suppr : "+ filename)
